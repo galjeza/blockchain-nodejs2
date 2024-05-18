@@ -8,7 +8,7 @@
     "dev-test": "nodemon dev-test",
     "start": "node ./app",
     "dev": "nodemon ./app",
-    "prepare": "husky install",
+    "prepare": "husky",
     "lint": "eslint . --ext .js"
   },
   "jest": {
