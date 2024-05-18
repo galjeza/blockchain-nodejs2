@@ -1,5 +1,5 @@
 const Block = require("./block");
-const { DIFFICULTY, MINE_RATE } = require("../config.js");
+const { MINE_RATE } = require("../config.js");
 
 describe("Block", () => {
   let data, lastBlock, block;

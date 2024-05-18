@@ -1,5 +1,4 @@
 const TransactionPool = require("./transaction-pool");
-const Transaction = require("./transaction");
 const Wallet = require("./index");
 const Blockchain = require("../blockchain");
 
@@ -28,7 +27,7 @@ describe("Transaction Pool", () => {
 
   it("updates a transaction in the pool", () => {
     const oldTransaction = JSON.stringify(transaction);
-    newTransaction = transaction.update(wallet, "foo-4ddr355", 40);
+    const newTransaction = transaction.update(wallet, "foo-4ddr355", 40);
     transactionPool.updateOrAddTransaction(newTransaction);
     expect(
       JSON.stringify(
