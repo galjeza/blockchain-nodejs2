@@ -10,6 +10,11 @@ docker pull node:20.11.0
 # Zagon posameznega kontejnerja za statično analizo
 docker run -it --rm static-analysis
 
+
+# Zagon posameznega kontejnerja za izvajanje testov
+docker run -it --rm -v $(pwd):/app -w /app node:20.11.0 sh -c "npm install && npm test"
+
+
 # Zagon posameznega kontejnerja za dinamično analizo
 docker run -it --rm -v $(pwd):/app -w /app node:20.11.0 sh -c "npm install eslint -g && eslint ."
 
