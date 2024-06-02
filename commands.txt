@@ -1,0 +1,23 @@
+#Zagon dockerja 
+sudo systemcl start docker
+
+# Gradnja slike za statično analizo
+docker build -t static-analysis .
+
+# Pridobitev slike iz Docker Hub za dinamično analizo
+docker pull node:20.11.0
+
+# Zagon posameznega kontejnerja za statično analizo
+docker run -it --rm static-analysis
+
+# Zagon posameznega kontejnerja za dinamično analizo
+docker run -it --rm -v $(pwd):/app -w /app node:20.11.0 sh -c "npm install eslint -g && eslint ."
+
+# Zagon kontejnerjev s pomočjo docker-compose
+docker-compose up
+
+# Preverjanje nameščenih orodij v kontejnerju za statično analizo
+docker exec -it <static-analysis-container-id> prettier --version
+
+# Preverjanje nameščenih orodij v kontejnerju za dinamično analizo
+docker exec -it <dynamic-analysis-container-id> eslint --version
